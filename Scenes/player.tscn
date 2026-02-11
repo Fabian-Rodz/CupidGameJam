@@ -1,23 +1,23 @@
 [gd_scene format=3 uid="uid://vac28bvwqrmv"]
 
-[ext_resource type="Script" uid="uid://c5up8t6gqohrs" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://c14ggekun3esn" path="res://Assets/TopDownCharacter/Character/Character_Right.png" id="2_6t5aa"]
-[ext_resource type="Texture2D" uid="uid://edgjwmcwao3q" path="res://Assets/TopDownCharacter/Character/Character_SlashDownLeft.png" id="2_qqcod"]
-[ext_resource type="Texture2D" uid="uid://dcigx1dm2blxw" path="res://Assets/TopDownCharacter/Character/Character_SlashUpLeft.png" id="3_igrcy"]
-[ext_resource type="Texture2D" uid="uid://bb08v1ceomkft" path="res://Assets/TopDownCharacter/Character/Character_SlashDownRight.png" id="4_fs7ks"]
-[ext_resource type="Texture2D" uid="uid://beerrhp4b44uo" path="res://Assets/TopDownCharacter/Character/Character_SlashUpRight.png" id="5_l6n3p"]
-[ext_resource type="Texture2D" uid="uid://upsngyhybasy" path="res://Assets/TopDownCharacter/Character/Death.png" id="6_igrcy"]
-[ext_resource type="Texture2D" uid="uid://c4xpmgvhhvlsl" path="res://Assets/TopDownCharacter/Character/Character_Down.png" id="6_olqyp"]
-[ext_resource type="Texture2D" uid="uid://djblndme07gr1" path="res://Assets/TopDownCharacter/Character/Character_DownLeft.png" id="7_wpjfl"]
-[ext_resource type="Texture2D" uid="uid://vxn6ffemt8cf" path="res://Assets/TopDownCharacter/Character/Character_DownRight.png" id="8_bi64h"]
-[ext_resource type="Texture2D" uid="uid://drq2y3ave84il" path="res://Assets/TopDownCharacter/Character/Character_Left.png" id="9_2ijsl"]
-[ext_resource type="Texture2D" uid="uid://tgwvm6tkwmc3" path="res://Assets/TopDownCharacter/Character/Character_Up.png" id="11_p1odr"]
-[ext_resource type="Texture2D" uid="uid://r8feylouhfbc" path="res://Assets/TopDownCharacter/Character/Character_UpLeft.png" id="12_0gysh"]
-[ext_resource type="Texture2D" uid="uid://cjib0gxw86y23" path="res://Assets/TopDownCharacter/Character/Character_UpRight.png" id="13_vfarp"]
-[ext_resource type="Texture2D" uid="uid://c6jeetytdscvg" path="res://Assets/TopDownCharacter/Weapon/Sword_DownLeft.png" id="14_y6uwr"]
-[ext_resource type="Texture2D" uid="uid://6sjr1jlkjh4" path="res://Assets/TopDownCharacter/Weapon/Sword_UpLeft.png" id="15_83xs0"]
-[ext_resource type="Texture2D" uid="uid://cqyvn4758jqjt" path="res://Assets/TopDownCharacter/Weapon/Sword_DownRight.png" id="16_ypfnu"]
-[ext_resource type="Texture2D" uid="uid://dwh5os6vvs2xy" path="res://Assets/TopDownCharacter/Weapon/Sword_UpRight.png" id="17_xuaoq"]
+[ext_resource type="Script" uid="uid://c5up8t6gqohrs" path="res://scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://c14ggekun3esn" path="res://assets/TopDownCharacter/Character/Character_Right.png" id="2_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://edgjwmcwao3q" path="res://assets/TopDownCharacter/Character/Character_SlashDownLeft.png" id="2_qqcod"]
+[ext_resource type="Texture2D" uid="uid://dcigx1dm2blxw" path="res://assets/TopDownCharacter/Character/Character_SlashUpLeft.png" id="3_igrcy"]
+[ext_resource type="Texture2D" uid="uid://bb08v1ceomkft" path="res://assets/TopDownCharacter/Character/Character_SlashDownRight.png" id="4_fs7ks"]
+[ext_resource type="Texture2D" uid="uid://beerrhp4b44uo" path="res://assets/TopDownCharacter/Character/Character_SlashUpRight.png" id="5_l6n3p"]
+[ext_resource type="Texture2D" uid="uid://upsngyhybasy" path="res://assets/TopDownCharacter/Character/Death.png" id="6_igrcy"]
+[ext_resource type="Texture2D" uid="uid://c4xpmgvhhvlsl" path="res://assets/TopDownCharacter/Character/Character_Down.png" id="6_olqyp"]
+[ext_resource type="Texture2D" uid="uid://djblndme07gr1" path="res://assets/TopDownCharacter/Character/Character_DownLeft.png" id="7_wpjfl"]
+[ext_resource type="Texture2D" uid="uid://vxn6ffemt8cf" path="res://assets/TopDownCharacter/Character/Character_DownRight.png" id="8_bi64h"]
+[ext_resource type="Texture2D" uid="uid://drq2y3ave84il" path="res://assets/TopDownCharacter/Character/Character_Left.png" id="9_2ijsl"]
+[ext_resource type="Texture2D" uid="uid://tgwvm6tkwmc3" path="res://assets/TopDownCharacter/Character/Character_Up.png" id="11_p1odr"]
+[ext_resource type="Texture2D" uid="uid://r8feylouhfbc" path="res://assets/TopDownCharacter/Character/Character_UpLeft.png" id="12_0gysh"]
+[ext_resource type="Texture2D" uid="uid://cjib0gxw86y23" path="res://assets/TopDownCharacter/Character/Character_UpRight.png" id="13_vfarp"]
+[ext_resource type="Texture2D" uid="uid://c6jeetytdscvg" path="res://assets/TopDownCharacter/Weapon/Sword_DownLeft.png" id="14_y6uwr"]
+[ext_resource type="Texture2D" uid="uid://6sjr1jlkjh4" path="res://assets/TopDownCharacter/Weapon/Sword_UpLeft.png" id="15_83xs0"]
+[ext_resource type="Texture2D" uid="uid://cqyvn4758jqjt" path="res://assets/TopDownCharacter/Weapon/Sword_DownRight.png" id="16_ypfnu"]
+[ext_resource type="Texture2D" uid="uid://dwh5os6vvs2xy" path="res://assets/TopDownCharacter/Weapon/Sword_UpRight.png" id="17_xuaoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wohnl"]
 atlas = ExtResource("2_qqcod")
@@ -798,7 +798,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/path = NodePath("AttackHitBox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -874,7 +874,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/5/path = NodePath("AttackHitBox/CollisionShape2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -886,7 +886,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/6/path = NodePath("AttackHitBox/CollisionShape2D:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -962,7 +962,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/5/path = NodePath("AttackHitBox/CollisionShape2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -974,7 +974,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/6/path = NodePath("AttackHitBox/CollisionShape2D:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -1050,7 +1050,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/5/path = NodePath("AttackHitBox/CollisionShape2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1062,7 +1062,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/6/path = NodePath("AttackHitBox/CollisionShape2D:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -1138,7 +1138,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/5/path = NodePath("AttackHitBox/CollisionShape2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1150,7 +1150,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/6/path = NodePath("AttackHitBox/CollisionShape2D:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -2250,22 +2250,24 @@ script = ExtResource("1_cvnsp")
 
 [node name="PlayerAnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1870551152]
 sprite_frames = SubResource("SpriteFrames_fkybt")
-animation = &"idle_right"
+animation = &"attack_left"
+frame = 1
 
 [node name="SwordAnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1677754502]
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_bvt37")
-animation = &"slash_up"
+animation = &"slash_left"
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=158633093]
 libraries/ = SubResource("AnimationLibrary_x8yfv")
 autoplay = &"idle_right"
 
-[node name="Area2D" type="Area2D" parent="." unique_id=851203162]
+[node name="AttackHitBox" type="Area2D" parent="." unique_id=851203162]
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1796095967]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitBox" unique_id=1796095967]
+position = Vector2(-9.446876, -4.2999988)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_igrcy")
 disabled = true
