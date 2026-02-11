@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c68cr0b3uwd7u"
-path="res://.godot/imported/Character_RollRight.png-f821213cd457bcbbebb446cfd5060e70.ctex"
+path="res://.godot/imported/Character_RollRight.png-fa16e95143c9a17503196c1355ec73d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TopDownCharacter/Character/Character_RollRight.png"
-dest_files=["res://.godot/imported/Character_RollRight.png-f821213cd457bcbbebb446cfd5060e70.ctex"]
+source_file="res://assets/TopDownCharacter/Character/Character_RollRight.png"
+dest_files=["res://.godot/imported/Character_RollRight.png-fa16e95143c9a17503196c1355ec73d1.ctex"]
 
 [params]
 
