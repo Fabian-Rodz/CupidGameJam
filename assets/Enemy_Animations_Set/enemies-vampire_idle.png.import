@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://y0rhphwyteml"
-path="res://.godot/imported/enemies-vampire_idle.png-1a248a8530fc358d32f36cfcd3ff7d4b.ctex"
+path="res://.godot/imported/enemies-vampire_idle.png-98412a74cd9f5a60565148e5e4da2194.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy_Animations_Set/enemies-vampire_idle.png"
-dest_files=["res://.godot/imported/enemies-vampire_idle.png-1a248a8530fc358d32f36cfcd3ff7d4b.ctex"]
+source_file="res://Assets/Enemy_Animations_Set/enemies-vampire_idle.png"
+dest_files=["res://.godot/imported/enemies-vampire_idle.png-98412a74cd9f5a60565148e5e4da2194.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ci7uve2v0pnpe"
-path="res://.godot/imported/enemies-vampire_death.png-de597fa21f42fc85701a1dbf355c875d.ctex"
+path="res://.godot/imported/enemies-vampire_death.png-6e0c7fab24154d3e58e19123ff1d0597.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy_Animations_Set/enemies-vampire_death.png"
-dest_files=["res://.godot/imported/enemies-vampire_death.png-de597fa21f42fc85701a1dbf355c875d.ctex"]
+source_file="res://Assets/Enemy_Animations_Set/enemies-vampire_death.png"
+dest_files=["res://.godot/imported/enemies-vampire_death.png-6e0c7fab24154d3e58e19123ff1d0597.ctex"]
 
 [params]
 

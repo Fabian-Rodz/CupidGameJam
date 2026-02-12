@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddsfqh556odw5"
-path="res://.godot/imported/enemies-skeleton2_take_damage.png-5f81455ba903332e76e76dcbf0f0a4eb.ctex"
+path="res://.godot/imported/enemies-skeleton2_take_damage.png-ce6c152d4c182f0e0966d3de44d4d9de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy_Animations_Set/enemies-skeleton2_take_damage.png"
-dest_files=["res://.godot/imported/enemies-skeleton2_take_damage.png-5f81455ba903332e76e76dcbf0f0a4eb.ctex"]
+source_file="res://Assets/Enemy_Animations_Set/enemies-skeleton2_take_damage.png"
+dest_files=["res://.godot/imported/enemies-skeleton2_take_damage.png-ce6c152d4c182f0e0966d3de44d4d9de.ctex"]
 
 [params]
 
