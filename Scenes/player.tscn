@@ -3373,7 +3373,6 @@ radius = 2.7000005
 height = 9.600001
 
 [node name="Player" type="CharacterBody2D" unique_id=1175071629]
-scale = Vector2(5, 5)
 collision_mask = 2
 script = ExtResource("1_cvnsp")
 

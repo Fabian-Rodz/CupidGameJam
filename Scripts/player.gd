@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 20000.0
-const ROLL_SPEED = 40000.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 10000.0
+const ROLL_SPEED = 20000.0
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var hurt_timer: Timer = $HurtTimer
@@ -121,4 +120,3 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			hurt_sequence()
 		else:
 			death_sequence()
-	print("Contact")
