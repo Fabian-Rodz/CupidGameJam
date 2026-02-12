@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c5seq572cpo04"]
+[gd_scene format=3 uid="uid://cobmg22c6ql5e"]
 
 [ext_resource type="Script" uid="uid://cwnawwtnabrfm" path="res://scripts/skeleton_2.gd" id="1_anguu"]
 [ext_resource type="Texture2D" uid="uid://r664h18ey2wn" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_attack.png" id="1_xahep"]
@@ -319,14 +319,13 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_anguu"]
 size = Vector2(6, 10)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1695345450]
+[node name="Skeleton2" type="CharacterBody2D" unique_id=1695345450]
 script = ExtResource("1_anguu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=100980999]
 sprite_frames = SubResource("SpriteFrames_q7frc")
 animation = &"idle"
 autoplay = "idle"
-frame = 4
 
 [node name="AttackHitBox" type="Area2D" parent="AnimatedSprite2D" unique_id=1099530181]
 

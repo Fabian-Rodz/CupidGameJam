@@ -3,11 +3,23 @@ extends CharacterBody2D
 var attacking = false
 
 func _ready() -> void:
-	$AnimationPlayer.play("idle")
+	$AnimationPlayer.play("walk")
 
 func _process(delta):
 	if Input.is_action_just_pressed("attack") and not attacking:
 		attack()
+		print(attacking)
+	if Input.is_action_just_pressed("move_left"):
+		if scale.x != -1:
+			scale.x = -1
+		$AnimationPlayer.play("walk")
+	if Input.is_action_just_pressed("move_right"):
+		if scale.x == -1:
+			scale.x = 1
+		$AnimationPlayer.play("walk")
+
+		
+			
 
 func attack():
 	attacking = true
@@ -18,6 +30,7 @@ func attack():
 	attacking = false
 	#reset to  idle -> for now
 	$AnimationPlayer.play("idle")
+
 
 			
 
