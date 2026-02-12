@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2b1qj8whtmkb"
-path="res://.godot/imported/enemies-vampire_attack.png-311b123d2d8b9a4b1fe39510ff3e21e7.ctex"
+path="res://.godot/imported/enemies-vampire_attack.png-433b4b3298d5822090a843dcdf55310c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy_Animations_Set/enemies-vampire_attack.png"
-dest_files=["res://.godot/imported/enemies-vampire_attack.png-311b123d2d8b9a4b1fe39510ff3e21e7.ctex"]
+source_file="res://Assets/Enemy_Animations_Set/enemies-vampire_attack.png"
+dest_files=["res://.godot/imported/enemies-vampire_attack.png-433b4b3298d5822090a843dcdf55310c.ctex"]
 
 [params]
 
