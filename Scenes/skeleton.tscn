@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c2bwox7ax3b7e"]
 
 [ext_resource type="Texture2D" uid="uid://cesnf13g5rfh1" path="res://assets/Enemy_Animations_Set/enemies-skeleton2_attack.png" id="1_81u3t"]
-[ext_resource type="Script" uid="uid://rc5rvj34kh8c" path="res://scripts/skeleton.gd" id="1_vd5x3"]
+[ext_resource type="Script" uid="uid://rc5rvj34kh8c" path="res://Scripts/skeleton.gd" id="1_vd5x3"]
 [ext_resource type="Texture2D" uid="uid://50ntysuwl8s5" path="res://assets/Enemy_Animations_Set/enemies-skeleton2_idle.png" id="2_vd5x3"]
 [ext_resource type="Texture2D" uid="uid://nyd7gdb2c7l0" path="res://assets/Enemy_Animations_Set/enemies-skeleton2_movemen.png" id="4_pegji"]
 
@@ -411,6 +411,7 @@ autoplay = "idle"
 frame = 12
 
 [node name="AttackHitBox" type="Area2D" parent="AnimatedSprite2D" unique_id=2044825939]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AttackHitBox" unique_id=1010092818]
 position = Vector2(3.5, 5)
