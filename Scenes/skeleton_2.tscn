@@ -326,6 +326,7 @@ script = ExtResource("1_anguu")
 sprite_frames = SubResource("SpriteFrames_q7frc")
 animation = &"idle"
 autoplay = "idle"
+frame = 4
 
 [node name="AttackHitBox" type="Area2D" parent="AnimatedSprite2D" unique_id=1099530181]
 
@@ -337,9 +338,6 @@ disabled = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=717889668]
 libraries/ = SubResource("AnimationLibrary_y0uqw")
 autoplay = &"idle"
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=851906459]
-zoom = Vector2(5, 5)
 
 [node name="HitBox" type="CollisionShape2D" parent="." unique_id=863389636]
 position = Vector2(-3, 8)

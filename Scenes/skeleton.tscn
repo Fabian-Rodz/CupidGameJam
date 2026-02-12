@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c2bwox7ax3b7e"]
 
 [ext_resource type="Texture2D" uid="uid://cesnf13g5rfh1" path="res://assets/Enemy_Animations_Set/enemies-skeleton2_attack.png" id="1_81u3t"]
-[ext_resource type="Script" path="res://scripts/skeleton.gd" id="1_vd5x3"]
+[ext_resource type="Script" uid="uid://rc5rvj34kh8c" path="res://scripts/skeleton.gd" id="1_vd5x3"]
 [ext_resource type="Texture2D" uid="uid://50ntysuwl8s5" path="res://assets/Enemy_Animations_Set/enemies-skeleton2_idle.png" id="2_vd5x3"]
 [ext_resource type="Texture2D" uid="uid://nyd7gdb2c7l0" path="res://assets/Enemy_Animations_Set/enemies-skeleton2_movemen.png" id="4_pegji"]
 
@@ -401,8 +401,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vd5x3"]
 size = Vector2(5, 10.533972)
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5abox"]
-
 [node name="Skeleton" type="CharacterBody2D" unique_id=893821949]
 script = ExtResource("1_vd5x3")
 
@@ -423,15 +421,7 @@ disabled = true
 root_node = NodePath("../AnimatedSprite2D")
 libraries/ = SubResource("AnimationLibrary_oelfx")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=981688263]
-zoom = Vector2(6, 6)
-
 [node name="HitBox" type="CollisionShape2D" parent="." unique_id=885583937]
 position = Vector2(-3, 8)
 scale = Vector2(1.051444, 0.9657204)
 shape = SubResource("RectangleShape2D_vd5x3")
-
-[node name="AnimationTree" type="AnimationTree" parent="." unique_id=2010795168]
-root_node = NodePath("../AnimatedSprite2D")
-tree_root = SubResource("AnimationNodeBlendTree_5abox")
-anim_player = NodePath("../AnimationPlayer")
