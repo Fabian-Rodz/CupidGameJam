@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cskje388evrc"
-path="res://.godot/imported/enemies-skeleton1_idle.png-5b777c4cb3e621adfb78fda165717fa8.ctex"
+path="res://.godot/imported/enemies-skeleton1_idle.png-47ec4fe5f2a673068d4c807724917f2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemy_Animations_Set/enemies-skeleton1_idle.png"
-dest_files=["res://.godot/imported/enemies-skeleton1_idle.png-5b777c4cb3e621adfb78fda165717fa8.ctex"]
+source_file="res://Assets/Enemy_Animations_Set/enemies-skeleton1_idle.png"
+dest_files=["res://.godot/imported/enemies-skeleton1_idle.png-47ec4fe5f2a673068d4c807724917f2c.ctex"]
 
 [params]
 
