@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b2b1qj8whtmkb" path="res://Assets/Enemy_Animations_Set/enemies-vampire_attack.png" id="1_quynd"]
 [ext_resource type="Texture2D" uid="uid://y0rhphwyteml" path="res://Assets/Enemy_Animations_Set/enemies-vampire_idle.png" id="2_l7ais"]
 [ext_resource type="Texture2D" uid="uid://bk4jn00yqu80l" path="res://Assets/Enemy_Animations_Set/enemies-vampire_movement.png" id="3_f5xx6"]
+[ext_resource type="Texture2D" uid="uid://c5gx4vyf4drh0" path="res://Assets/Enemy_Animations_Set/enemies-vampire_take_damage.png" id="4_f5xx6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2tffl"]
 atlas = ExtResource("1_quynd")
@@ -92,6 +93,26 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_te72b"]
 atlas = ExtResource("2_l7ais")
 region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3va4"]
+atlas = ExtResource("4_f5xx6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcw7h"]
+atlas = ExtResource("4_f5xx6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_270kx"]
+atlas = ExtResource("4_f5xx6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ethc"]
+atlas = ExtResource("4_f5xx6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vg80"]
+atlas = ExtResource("4_f5xx6")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_62ipx"]
 atlas = ExtResource("3_f5xx6")
@@ -202,6 +223,26 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3va4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcw7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_270kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ethc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vg80")
+}],
+"loop": true,
+"name": &"take_damage",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -344,6 +385,33 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_6na5v"]
+resource_name = "take_damage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"take_damage"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
 [sub_resource type="Animation" id="Animation_l7ais"]
 resource_name = "walk"
 length = 1.46
@@ -378,6 +446,7 @@ _data = {
 &"RESET": SubResource("Animation_mcw7h"),
 &"attack": SubResource("Animation_270kx"),
 &"idle": SubResource("Animation_quynd"),
+&"take_damage": SubResource("Animation_6na5v"),
 &"walk": SubResource("Animation_l7ais")
 }
 
@@ -385,6 +454,7 @@ _data = {
 size = Vector2(7.5, 10)
 
 [node name="Vampire" type="CharacterBody2D" unique_id=1060493693]
+collision_layer = 2
 script = ExtResource("1_l7ais")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=657946224]
@@ -407,3 +477,13 @@ autoplay = &"idle"
 [node name="HitBox" type="CollisionShape2D" parent="." unique_id=1219576517]
 position = Vector2(-2, 6)
 shape = SubResource("RectangleShape2D_l7ais")
+
+[node name="HixBoxArea" type="Area2D" parent="." unique_id=1107757128]
+collision_layer = 2
+collision_mask = 16
+
+[node name="HitBox" type="CollisionShape2D" parent="HixBoxArea" unique_id=1637167221]
+position = Vector2(-2, 6)
+shape = SubResource("RectangleShape2D_l7ais")
+
+[connection signal="area_entered" from="HixBoxArea" to="." method="_on_hit_box_area_area_exited"]

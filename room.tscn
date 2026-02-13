@@ -20,6 +20,7 @@ size = Vector2(20, 130)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Dungeon/Walls" unique_id=784922644]
 collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dungeon/Walls/StaticBody2D" unique_id=682526642]
 position = Vector2(24, 232)
@@ -28,6 +29,7 @@ shape = SubResource("RectangleShape2D_bisa2")
 [node name="StaticBody2D2" type="StaticBody2D" parent="Dungeon/Walls" unique_id=900384304]
 position = Vector2(32, 88)
 collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dungeon/Walls/StaticBody2D2" unique_id=1948833314]
 position = Vector2(288, 8)
@@ -40,6 +42,7 @@ shape = SubResource("RectangleShape2D_4o3f6")
 [node name="StaticBody2D3" type="StaticBody2D" parent="Dungeon/Walls" unique_id=1683701710]
 position = Vector2(624, 104)
 collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dungeon/Walls/StaticBody2D3" unique_id=1778337589]
 position = Vector2(-8, 56)
@@ -48,6 +51,7 @@ shape = SubResource("RectangleShape2D_v5vuv")
 [node name="StaticBody2D4" type="StaticBody2D" parent="Dungeon/Walls" unique_id=615989549]
 position = Vector2(624, 104)
 collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dungeon/Walls/StaticBody2D4" unique_id=1777884064]
 position = Vector2(-8, 216)
@@ -56,3 +60,4 @@ shape = SubResource("RectangleShape2D_v5vuv")
 [node name="Player" parent="." unique_id=1175071629 instance=ExtResource("1_0xm2m")]
 position = Vector2(351, 230)
 scale = Vector2(1, 1)
+projectile_scene = null

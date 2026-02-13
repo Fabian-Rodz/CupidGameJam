@@ -3422,13 +3422,8 @@ graph_offset = Vector2(-14.714, 0)
 radius = 2.6000004
 height = 7.200001
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ho16k"]
-radius = 2.7000005
-height = 9.600001
-
 [node name="Player" type="CharacterBody2D" unique_id=1175071629]
-scale = Vector2(5, 5)
-collision_mask = 14
+collision_mask = 526
 script = ExtResource("1_cvnsp")
 projectile_scene = ExtResource("2_y6uwr")
 
@@ -3448,6 +3443,8 @@ libraries/ = SubResource("AnimationLibrary_x8yfv")
 autoplay = &"idle_right"
 
 [node name="SwordHitbox" type="Area2D" parent="." unique_id=851203162]
+collision_layer = 16
+collision_mask = 2
 monitoring = false
 
 [node name="SwordCollisionShape2D" type="CollisionShape2D" parent="SwordHitbox" unique_id=1796095967]
@@ -3464,23 +3461,6 @@ parameters/Idle/TimeScale/scale = 1.0
 parameters/Roll/BlendSpace2D/blend_position = Vector2(0, 0)
 parameters/Walk/BlendSpace2D/blend_position = Vector2(0, 0)
 
-[node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=593796448]
-position = Vector2(0, 6.4)
-scale = Vector2(0.99999976, 0.99999976)
-shape = SubResource("CapsuleShape2D_cq7w1")
-
-[node name="Hurtbox" type="Area2D" parent="." unique_id=921122335]
-
-collision_layer = 1       # player is on layer 1
-collision_mask = 526      # detects layers 2,3,4,10
-
-[node name="HurtboxCollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1541928180]
-position = Vector2(0.19999999, 5.3999996)
-scale = Vector2(0.99999976, 0.99999976)
-shape = SubResource("CapsuleShape2D_ho16k")
-disabled = true
-debug_color = Color(0.72685134, 0.46548706, 0.27743015, 0.41960785)
-
 [node name="HurtTimer" type="Timer" parent="." unique_id=1798032093]
 wait_time = 1.2
 one_shot = true
@@ -3488,6 +3468,18 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=481028585]
 zoom = Vector2(4, 4)
 
+[node name="Hurtbox" type="Area2D" parent="." unique_id=921122335]
+scale = Vector2(0.99999976, 0.99999976)
+collision_mask = 526
+
+[node name="HurtboxCollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=593796448]
+position = Vector2(0, 6.4000006)
+shape = SubResource("CapsuleShape2D_cq7w1")
+
+[node name="HurtboxCollisionShape2D" type="CollisionShape2D" parent="." unique_id=2031409225]
+position = Vector2(0, 6.4000006)
+shape = SubResource("CapsuleShape2D_cq7w1")
+
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

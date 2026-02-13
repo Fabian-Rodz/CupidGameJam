@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://r664h18ey2wn" path="res://Assets/Enemy_Animations_Set/enemies-skeleton1_attack.png" id="1_xahep"]
 [ext_resource type="Texture2D" uid="uid://cskje388evrc" path="res://Assets/Enemy_Animations_Set/enemies-skeleton1_idle.png" id="2_anguu"]
 [ext_resource type="Texture2D" uid="uid://bx1et1xi2uk7k" path="res://Assets/Enemy_Animations_Set/enemies-skeleton1_movement.png" id="4_7pwv1"]
+[ext_resource type="Texture2D" uid="uid://dfe887weur3i6" path="res://Assets/Enemy_Animations_Set/enemies-skeleton1_take_damage.png" id="4_vdjlh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7pwv1"]
 atlas = ExtResource("1_xahep")
@@ -64,6 +65,26 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_k8vta"]
 atlas = ExtResource("2_anguu")
 region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccb1l"]
+atlas = ExtResource("4_vdjlh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6ks3"]
+atlas = ExtResource("4_vdjlh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dchd0"]
+atlas = ExtResource("4_vdjlh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx2sn"]
+atlas = ExtResource("4_vdjlh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mup40"]
+atlas = ExtResource("4_vdjlh")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jghok"]
 atlas = ExtResource("4_7pwv1")
@@ -160,6 +181,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccb1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6ks3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dchd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx2sn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mup40")
+}],
+"loop": true,
+"name": &"take_damage",
 "speed": 5.0
 }, {
 "frames": [{
@@ -293,6 +334,34 @@ tracks/0/keys = {
 "values": [&"idle"]
 }
 
+[sub_resource type="Animation" id="Animation_5iaes"]
+resource_name = "take_damage"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"take_damage"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 3, 4]
+}
+
 [sub_resource type="Animation" id="Animation_ccb1l"]
 resource_name = "walk"
 tracks/0/type = "value"
@@ -313,6 +382,7 @@ _data = {
 &"RESET": SubResource("Animation_jghok"),
 &"attack": SubResource("Animation_lkyo0"),
 &"idle": SubResource("Animation_anguu"),
+&"take_damage": SubResource("Animation_5iaes"),
 &"walk": SubResource("Animation_ccb1l")
 }
 
@@ -320,17 +390,17 @@ _data = {
 size = Vector2(6, 10)
 
 [node name="Skeleton2" type="CharacterBody2D" unique_id=1695345450]
+collision_layer = 2
 script = ExtResource("1_anguu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=100980999]
 sprite_frames = SubResource("SpriteFrames_q7frc")
 animation = &"idle"
 autoplay = "idle"
-frame = 4
 
 [node name="AttackHitBox" type="Area2D" parent="AnimatedSprite2D" unique_id=1099530181]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 24
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2D/AttackHitBox" unique_id=1881496529]
 position = Vector2(1, 0)
@@ -341,6 +411,16 @@ disabled = true
 libraries/ = SubResource("AnimationLibrary_y0uqw")
 autoplay = &"idle"
 
-[node name="HitBox" type="CollisionShape2D" parent="." unique_id=863389636]
+[node name="HitBoxArea" type="Area2D" parent="." unique_id=1596819105]
+position = Vector2(-3, 8)
+collision_layer = 2
+collision_mask = 16
+
+[node name="HitBox" type="CollisionShape2D" parent="HitBoxArea" unique_id=863389636]
+shape = SubResource("RectangleShape2D_anguu")
+
+[node name="HitBox" type="CollisionShape2D" parent="." unique_id=1284543686]
 position = Vector2(-3, 8)
 shape = SubResource("RectangleShape2D_anguu")
+
+[connection signal="area_entered" from="HitBoxArea" to="." method="_on_hit_box_area_area_entered"]

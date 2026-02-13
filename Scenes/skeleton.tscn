@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cesnf13g5rfh1" path="res://Assets/Enemy_Animations_Set/enemies-skeleton2_attack.png" id="1_81u3t"]
 [ext_resource type="Script" uid="uid://rc5rvj34kh8c" path="res://Scripts/skeleton.gd" id="1_vd5x3"]
 [ext_resource type="Texture2D" uid="uid://50ntysuwl8s5" path="res://Assets/Enemy_Animations_Set/enemies-skeleton2_idle.png" id="2_vd5x3"]
+[ext_resource type="Texture2D" uid="uid://ddsfqh556odw5" path="res://Assets/Enemy_Animations_Set/enemies-skeleton2_take_damage.png" id="4_5abox"]
 [ext_resource type="Texture2D" uid="uid://nyd7gdb2c7l0" path="res://Assets/Enemy_Animations_Set/enemies-skeleton2_movemen.png" id="4_pegji"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pegji"]
@@ -88,6 +89,26 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ksbdh"]
 atlas = ExtResource("2_vd5x3")
 region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqvih"]
+atlas = ExtResource("4_5abox")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjfp6"]
+atlas = ExtResource("4_5abox")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6yni"]
+atlas = ExtResource("4_5abox")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbn8f"]
+atlas = ExtResource("4_5abox")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trmo5"]
+atlas = ExtResource("4_5abox")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_di62f"]
 atlas = ExtResource("4_pegji")
@@ -202,6 +223,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqvih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjfp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6yni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbn8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trmo5")
+}],
+"loop": true,
+"name": &"take_damage",
 "speed": 5.0
 }, {
 "frames": [{
@@ -348,6 +389,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_vd5x3"]
 resource_name = "idle"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -373,6 +415,33 @@ tracks/1/keys = {
 "values": [&"idle"]
 }
 
+[sub_resource type="Animation" id="Animation_i6aie"]
+resource_name = "take_damage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.025604714),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"take_damage"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.025604714, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
 [sub_resource type="Animation" id="Animation_fqvih"]
 resource_name = "walk"
 length = 2.3
@@ -395,6 +464,7 @@ _data = {
 &"RESET": SubResource("Animation_vjh88"),
 &"attack": SubResource("Animation_rfcpp"),
 &"idle": SubResource("Animation_vd5x3"),
+&"take_damage": SubResource("Animation_i6aie"),
 &"walk": SubResource("Animation_fqvih")
 }
 
@@ -413,7 +483,7 @@ frame = 12
 
 [node name="AttackHitBox" type="Area2D" parent="AnimatedSprite2D" unique_id=2044825939]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AttackHitBox" unique_id=1010092818]
 position = Vector2(3.5, 5)
@@ -424,7 +494,18 @@ disabled = true
 root_node = NodePath("../AnimatedSprite2D")
 libraries/ = SubResource("AnimationLibrary_oelfx")
 
+[node name="HitBoxArea" type="Area2D" parent="." unique_id=724354110]
+collision_layer = 2
+collision_mask = 16
+
+[node name="HitBox" type="CollisionShape2D" parent="HitBoxArea" unique_id=1331261129]
+position = Vector2(-3, 8)
+scale = Vector2(1.051444, 0.9657204)
+shape = SubResource("RectangleShape2D_vd5x3")
+
 [node name="HitBox" type="CollisionShape2D" parent="." unique_id=885583937]
 position = Vector2(-3, 8)
 scale = Vector2(1.051444, 0.9657204)
 shape = SubResource("RectangleShape2D_vd5x3")
+
+[connection signal="area_exited" from="HitBoxArea" to="." method="_on_hit_box_area_area_exited"]
