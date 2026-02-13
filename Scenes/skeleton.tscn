@@ -282,7 +282,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_di62f"]
-size = Vector2(31, 12)
+size = Vector2(36, 20)
 
 [sub_resource type="Animation" id="Animation_vjh88"]
 length = 0.001
@@ -458,6 +458,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [&"walk"]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oelfx"]
 _data = {
@@ -473,20 +485,20 @@ size = Vector2(5, 10.533972)
 
 [node name="Skeleton" type="CharacterBody2D" unique_id=893821949]
 collision_layer = 2
+collision_mask = 11
 script = ExtResource("1_vd5x3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1263506671]
 sprite_frames = SubResource("SpriteFrames_ks230")
 animation = &"atack_one"
 autoplay = "idle"
-frame = 12
 
 [node name="AttackHitBox" type="Area2D" parent="AnimatedSprite2D" unique_id=2044825939]
 collision_layer = 4
 collision_mask = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AttackHitBox" unique_id=1010092818]
-position = Vector2(3.5, 5)
+position = Vector2(6, 4)
 shape = SubResource("RectangleShape2D_di62f")
 disabled = true
 

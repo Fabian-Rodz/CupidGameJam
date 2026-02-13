@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://bxsg7qsjego1n"]
 
 [ext_resource type="PackedScene" uid="uid://vac28bvwqrmv" path="res://Scenes/player.tscn" id="1_0xm2m"]
-[ext_resource type="PackedScene" path="res://Dungeon.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bm1i2t2qnr3qp" path="res://Dungeon.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://qamk43uas0wm" path="res://Scenes/path_follow_2d.tscn" id="3_v5vuv"]
+[ext_resource type="PackedScene" uid="uid://c2bwox7ax3b7e" path="res://Scenes/skeleton.tscn" id="4_ka7wq"]
+[ext_resource type="PackedScene" uid="uid://hl80ser1wlcr" path="res://Scenes/player_detector.tscn" id="5_ka7wq"]
+[ext_resource type="PackedScene" uid="uid://mfvu2gbo0re7" path="res://Scenes/vampire.tscn" id="6_x5k2b"]
+[ext_resource type="PackedScene" uid="uid://cobmg22c6ql5e" path="res://Scenes/skeleton_2.tscn" id="7_8cv3p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bisa2"]
 size = Vector2(20, 264)
@@ -11,6 +16,42 @@ size = Vector2(594, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5vuv"]
 size = Vector2(20, 130)
+
+[sub_resource type="Curve2D" id="Curve2D_x5k2b"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 69, 131, 0, 0, 0, 0, 64, 256, 0, 0, 0, 0, 128, 256, 0, 0, 0, 0, 128, 128, 0, 0, 0, 0, 256, 128, 0, 0, 0, 0, 69, 131)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_8cv3p"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 80, 328, 0, 0, 0, 0, 392, 328, 0, 0, 0, 0, 80, 328, 0, 0, 0, 0, 384, 272, 0, 0, 0, 0, 80, 272, 0, 0, 0, 0, 80, 328)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_01y1d"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 160, 152, 0, 0, 0, 0, 320, 152, 0, 0, 0, 0, 320, 208, 0, 0, 0, 0, 160, 208, 0, 0, 0, 0, 160, 248, 0, 0, 0, 0, 160, 152)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_42v8c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 384, 152, 0, 0, 0, 0, 544, 216, 0, 0, 0, 0, 544, 296, 0, 0, 0, 0, 416, 328, 0, 0, 0, 0, 384, 152)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_mb7s7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 488, 120, 0, 0, 0, 0, 344, 120, 0, 0, 0, 0, 280, 168, 0, 0, 0, 0, 272, 240, 0, 0, 0, 0, 488, 120)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_xorjj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 208, 312, 0, 0, 0, 0, 320, 312, 0, 0, 0, 0, 208, 224, 0, 0, 0, 0, 208, 176, 0, 0, 0, 0, 312, 168, 0, 0, 0, 0, 208, 312)
+}
+point_count = 6
 
 [node name="Main" type="Node2D" unique_id=87218966]
 
@@ -57,7 +98,84 @@ collision_mask = 0
 position = Vector2(-8, 216)
 shape = SubResource("RectangleShape2D_v5vuv")
 
-[node name="Player" parent="." unique_id=1175071629 instance=ExtResource("1_0xm2m")]
+[node name="Entities" type="Node2D" parent="." unique_id=422000638]
+y_sort_enabled = true
+
+[node name="Player" parent="Entities" unique_id=1175071629 instance=ExtResource("1_0xm2m")]
 position = Vector2(351, 230)
-scale = Vector2(1, 1)
 projectile_scene = null
+
+[node name="EnemyPaths" type="Node" parent="Entities" unique_id=392859331]
+
+[node name="Path2D" type="Path2D" parent="Entities/EnemyPaths" unique_id=1553372466]
+curve = SubResource("Curve2D_x5k2b")
+
+[node name="PathFollow2D" parent="Entities/EnemyPaths/Path2D" unique_id=921618437 instance=ExtResource("3_v5vuv")]
+position = Vector2(69, 131)
+rotation = 1.610775
+
+[node name="Skeleton" parent="Entities/EnemyPaths/Path2D/PathFollow2D" unique_id=893821949 instance=ExtResource("4_ka7wq")]
+rotation = -1.606685
+
+[node name="PlayerDetector" parent="Entities/EnemyPaths/Path2D/PathFollow2D/Skeleton" unique_id=777328507 instance=ExtResource("5_ka7wq")]
+rotation = 1.606685
+scale = Vector2(4.936994, 4.3960714)
+
+[node name="Path2D2" type="Path2D" parent="Entities/EnemyPaths" unique_id=1794015317]
+curve = SubResource("Curve2D_8cv3p")
+
+[node name="PathFollow2D" parent="Entities/EnemyPaths/Path2D2" unique_id=150459250 instance=ExtResource("3_v5vuv")]
+position = Vector2(80, 328)
+
+[node name="Vampire" parent="Entities/EnemyPaths/Path2D2/PathFollow2D" unique_id=1060493693 instance=ExtResource("6_x5k2b")]
+scale = Vector2(1, 0.99270064)
+
+[node name="PlayerDetector" parent="Entities/EnemyPaths/Path2D2/PathFollow2D/Vampire" unique_id=1079768309 instance=ExtResource("5_ka7wq")]
+
+[node name="Path2D3" type="Path2D" parent="Entities/EnemyPaths" unique_id=819102193]
+curve = SubResource("Curve2D_01y1d")
+
+[node name="PathFollow2D" parent="Entities/EnemyPaths/Path2D3" unique_id=610583004 instance=ExtResource("3_v5vuv")]
+position = Vector2(160, 152)
+
+[node name="Skeleton2" parent="Entities/EnemyPaths/Path2D3/PathFollow2D" unique_id=1695345450 instance=ExtResource("7_8cv3p")]
+collision_mask = 9
+
+[node name="PlayerDetector" parent="Entities/EnemyPaths/Path2D3/PathFollow2D/Skeleton2" unique_id=719722533 instance=ExtResource("5_ka7wq")]
+
+[node name="Path2D4" type="Path2D" parent="Entities/EnemyPaths" unique_id=7523736]
+curve = SubResource("Curve2D_42v8c")
+
+[node name="PathFollow2D" parent="Entities/EnemyPaths/Path2D4" unique_id=284092128 instance=ExtResource("3_v5vuv")]
+position = Vector2(384, 152)
+
+[node name="Skeleton2" parent="Entities/EnemyPaths/Path2D4/PathFollow2D" unique_id=1086830686 instance=ExtResource("7_8cv3p")]
+
+[node name="PlayerDetector" parent="Entities/EnemyPaths/Path2D4/PathFollow2D/Skeleton2" unique_id=1499473492 instance=ExtResource("5_ka7wq")]
+
+[node name="Path2D5" type="Path2D" parent="Entities/EnemyPaths" unique_id=1231307694]
+curve = SubResource("Curve2D_mb7s7")
+
+[node name="PathFollow2D" parent="Entities/EnemyPaths/Path2D5" unique_id=1840129751 instance=ExtResource("3_v5vuv")]
+position = Vector2(488, 120)
+
+[node name="Skeleton" parent="Entities/EnemyPaths/Path2D5/PathFollow2D" unique_id=896625592 instance=ExtResource("4_ka7wq")]
+
+[node name="PlayerDetector" parent="Entities/EnemyPaths/Path2D5/PathFollow2D/Skeleton" unique_id=959967155 instance=ExtResource("5_ka7wq")]
+
+[node name="Path2D6" type="Path2D" parent="Entities/EnemyPaths" unique_id=695438046]
+curve = SubResource("Curve2D_xorjj")
+
+[node name="PathFollow2D" parent="Entities/EnemyPaths/Path2D6" unique_id=93477434 instance=ExtResource("3_v5vuv")]
+position = Vector2(208, 312)
+
+[node name="Vampire" parent="Entities/EnemyPaths/Path2D6/PathFollow2D" unique_id=600538301 instance=ExtResource("6_x5k2b")]
+
+[node name="PlayerDetector" parent="Entities/EnemyPaths/Path2D6/PathFollow2D/Vampire" unique_id=693226504 instance=ExtResource("5_ka7wq")]
+
+[connection signal="follow_player" from="Entities/EnemyPaths/Path2D/PathFollow2D/Skeleton/PlayerDetector" to="Entities/EnemyPaths/Path2D/PathFollow2D" method="_on_player_detector_follow_player"]
+[connection signal="follow_player" from="Entities/EnemyPaths/Path2D2/PathFollow2D/Vampire/PlayerDetector" to="Entities/EnemyPaths/Path2D2/PathFollow2D" method="_on_player_detector_follow_player"]
+[connection signal="follow_player" from="Entities/EnemyPaths/Path2D3/PathFollow2D/Skeleton2/PlayerDetector" to="Entities/EnemyPaths/Path2D3/PathFollow2D" method="_on_player_detector_follow_player"]
+[connection signal="follow_player" from="Entities/EnemyPaths/Path2D4/PathFollow2D/Skeleton2/PlayerDetector" to="Entities/EnemyPaths/Path2D4/PathFollow2D" method="_on_player_detector_follow_player"]
+[connection signal="follow_player" from="Entities/EnemyPaths/Path2D5/PathFollow2D/Skeleton/PlayerDetector" to="Entities/EnemyPaths/Path2D5/PathFollow2D" method="_on_player_detector_follow_player"]
+[connection signal="follow_player" from="Entities/EnemyPaths/Path2D6/PathFollow2D/Vampire/PlayerDetector" to="Entities/EnemyPaths/Path2D6/PathFollow2D" method="_on_player_detector_follow_player"]

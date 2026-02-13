@@ -391,14 +391,19 @@ size = Vector2(6, 10)
 
 [node name="Skeleton2" type="CharacterBody2D" unique_id=1695345450]
 collision_layer = 2
+collision_mask = 11
 script = ExtResource("1_anguu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=100980999]
+scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_q7frc")
 animation = &"idle"
 autoplay = "idle"
+frame = 4
 
 [node name="AttackHitBox" type="Area2D" parent="AnimatedSprite2D" unique_id=1099530181]
+position = Vector2(-1.9999999, -0.99999994)
+scale = Vector2(1.3740618, 1.470227)
 collision_layer = 4
 collision_mask = 24
 
@@ -412,7 +417,7 @@ libraries/ = SubResource("AnimationLibrary_y0uqw")
 autoplay = &"idle"
 
 [node name="HitBoxArea" type="Area2D" parent="." unique_id=1596819105]
-position = Vector2(-3, 8)
+position = Vector2(3, 8)
 collision_layer = 2
 collision_mask = 16
 
@@ -420,7 +425,7 @@ collision_mask = 16
 shape = SubResource("RectangleShape2D_anguu")
 
 [node name="HitBox" type="CollisionShape2D" parent="." unique_id=1284543686]
-position = Vector2(-3, 8)
+position = Vector2(3, 8)
 shape = SubResource("RectangleShape2D_anguu")
 
-[connection signal="area_entered" from="HitBoxArea" to="." method="_on_hit_box_area_area_entered"]
+[connection signal="area_entered" from="HitBoxArea" to="." method="_on_hit_box_area_area_exited"]

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://hl80ser1wlcr"]
+
+[ext_resource type="Script" uid="uid://dc0rsrk3wacov" path="res://Scripts/player_detector.gd" id="1_3wjiv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13a6k"]
+
+[node name="PlayerDetector" type="Area2D" unique_id=777328507]
+scale = Vector2(4.936338, 4.3808527)
+collision_layer = 32
+script = ExtResource("1_3wjiv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=277905155]
+shape = SubResource("RectangleShape2D_13a6k")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

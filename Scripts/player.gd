@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 120.0
+const SPEED = 100.0
 const ROLL_SPEED = 240.0
 const JUMP_VELOCITY = -70.0
 
@@ -137,13 +137,14 @@ func _on_hurt_timer_timeout() -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	#if area.collision_layer == 4 and not is_rolling:
-	if !is_hurt:
-		if lives > 1:
-			hurt_sequence()
-		else:
-			death_sequence()
-	print("Contact")
+	if area.collision_layer == 4 and not is_rolling:
+		if !is_hurt:
+			if lives > 1:
+				hurt_sequence()
+			else:
+				death_sequence()
+		print("Contact")
+	print(area.collision_layer)
 
 
 func _on_power_pickup_give_power() -> void:

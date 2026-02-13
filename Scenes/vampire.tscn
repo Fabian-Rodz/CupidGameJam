@@ -222,7 +222,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 1.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -275,7 +275,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3va4"]
-size = Vector2(13, 16)
+size = Vector2(19.5, 23)
 
 [sub_resource type="Animation" id="Animation_mcw7h"]
 length = 0.001
@@ -455,27 +455,28 @@ size = Vector2(7.5, 10)
 
 [node name="Vampire" type="CharacterBody2D" unique_id=1060493693]
 collision_layer = 2
+collision_mask = 11
 script = ExtResource("1_l7ais")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=657946224]
 sprite_frames = SubResource("SpriteFrames_2tffl")
 animation = &"attack"
+flip_h = true
 
 [node name="AttackHitBox" type="Area2D" parent="AnimatedSprite2D" unique_id=774338718]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AttackHitBox" unique_id=1864123067]
-position = Vector2(8.5, 2)
+position = Vector2(-8.25, -1.5)
 shape = SubResource("RectangleShape2D_d3va4")
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2033848858]
 libraries/ = SubResource("AnimationLibrary_4ethc")
-autoplay = &"idle"
 
 [node name="HitBox" type="CollisionShape2D" parent="." unique_id=1219576517]
-position = Vector2(-2, 6)
+position = Vector2(2, 8)
 shape = SubResource("RectangleShape2D_l7ais")
 
 [node name="HixBoxArea" type="Area2D" parent="." unique_id=1107757128]
@@ -483,7 +484,7 @@ collision_layer = 2
 collision_mask = 16
 
 [node name="HitBox" type="CollisionShape2D" parent="HixBoxArea" unique_id=1637167221]
-position = Vector2(-2, 6)
+position = Vector2(2, 8)
 shape = SubResource("RectangleShape2D_l7ais")
 
 [connection signal="area_entered" from="HixBoxArea" to="." method="_on_hit_box_area_area_exited"]
