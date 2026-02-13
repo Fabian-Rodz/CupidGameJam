@@ -508,4 +508,5 @@ position = Vector2(-3, 8)
 scale = Vector2(1.051444, 0.9657204)
 shape = SubResource("RectangleShape2D_vd5x3")
 
+[connection signal="area_entered" from="HitBoxArea" to="." method="_on_hit_box_area_area_entered"]
 [connection signal="area_exited" from="HitBoxArea" to="." method="_on_hit_box_area_area_exited"]
