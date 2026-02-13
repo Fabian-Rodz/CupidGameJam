@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://mfvu2gbo0re7"]
 
 [ext_resource type="Script" uid="uid://seiqfjh3j4qf" path="res://Scripts/vampire.gd" id="1_l7ais"]
-[ext_resource type="Texture2D" uid="uid://b2b1qj8whtmkb" path="res://assets/Enemy_Animations_Set/enemies-vampire_attack.png" id="1_quynd"]
-[ext_resource type="Texture2D" uid="uid://y0rhphwyteml" path="res://assets/Enemy_Animations_Set/enemies-vampire_idle.png" id="2_l7ais"]
-[ext_resource type="Texture2D" uid="uid://bk4jn00yqu80l" path="res://assets/Enemy_Animations_Set/enemies-vampire_movement.png" id="3_f5xx6"]
+[ext_resource type="Texture2D" uid="uid://b2b1qj8whtmkb" path="res://Assets/Enemy_Animations_Set/enemies-vampire_attack.png" id="1_quynd"]
+[ext_resource type="Texture2D" uid="uid://y0rhphwyteml" path="res://Assets/Enemy_Animations_Set/enemies-vampire_idle.png" id="2_l7ais"]
+[ext_resource type="Texture2D" uid="uid://bk4jn00yqu80l" path="res://Assets/Enemy_Animations_Set/enemies-vampire_movement.png" id="3_f5xx6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2tffl"]
 atlas = ExtResource("1_quynd")
@@ -392,7 +392,8 @@ sprite_frames = SubResource("SpriteFrames_2tffl")
 animation = &"attack"
 
 [node name="AttackHitBox" type="Area2D" parent="AnimatedSprite2D" unique_id=774338718]
-collision_layer = 2
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AttackHitBox" unique_id=1864123067]
 position = Vector2(8.5, 2)

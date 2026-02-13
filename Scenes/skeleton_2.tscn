@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cobmg22c6ql5e"]
 
 [ext_resource type="Script" uid="uid://cwnawwtnabrfm" path="res://Scripts/skeleton_2.gd" id="1_anguu"]
-[ext_resource type="Texture2D" uid="uid://r664h18ey2wn" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_attack.png" id="1_xahep"]
-[ext_resource type="Texture2D" uid="uid://cskje388evrc" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_idle.png" id="2_anguu"]
-[ext_resource type="Texture2D" uid="uid://bx1et1xi2uk7k" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_movement.png" id="4_7pwv1"]
+[ext_resource type="Texture2D" uid="uid://r664h18ey2wn" path="res://Assets/Enemy_Animations_Set/enemies-skeleton1_attack.png" id="1_xahep"]
+[ext_resource type="Texture2D" uid="uid://cskje388evrc" path="res://Assets/Enemy_Animations_Set/enemies-skeleton1_idle.png" id="2_anguu"]
+[ext_resource type="Texture2D" uid="uid://bx1et1xi2uk7k" path="res://Assets/Enemy_Animations_Set/enemies-skeleton1_movement.png" id="4_7pwv1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7pwv1"]
 atlas = ExtResource("1_xahep")
@@ -329,7 +329,8 @@ autoplay = "idle"
 frame = 4
 
 [node name="AttackHitBox" type="Area2D" parent="AnimatedSprite2D" unique_id=1099530181]
-collision_layer = 2
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2D/AttackHitBox" unique_id=1881496529]
 position = Vector2(1, 0)

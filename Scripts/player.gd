@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 
-const SPEED = 20000.0
-const ROLL_SPEED = 40000.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 120.0
+const ROLL_SPEED = 240.0
+const JUMP_VELOCITY = -70.0
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var hurt_timer: Timer = $HurtTimer
@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle roll pt2
 	if is_rolling:
-		velocity = direction_facing.normalized() * delta * ROLL_SPEED
+		velocity = direction_facing.normalized() * ROLL_SPEED
 		move_and_slide()
 	
 	# Handle attack
@@ -81,7 +81,7 @@ func _physics_process(delta: float) -> void:
 			animation_tree.set("parameters/Attack/BlendSpace2D/blend_position", input_dir)
 			animation_tree.set("parameters/Roll/BlendSpace2D/blend_position", input_dir)
 	
-		velocity = input_dir.normalized() * delta * SPEED
+		velocity = input_dir.normalized() * SPEED
 		move_and_slide()
 	
 	# Hurt blink animation
@@ -116,9 +116,10 @@ func _on_hurt_timer_timeout() -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if !is_hurt:
-		if lives > 1:
-			hurt_sequence()
-		else:
-			death_sequence()
-	print("Contact")
+	if area.collision_layer == 4 and not is_rolling:
+		if !is_hurt:
+			if lives > 1:
+				hurt_sequence()
+			else:
+				death_sequence()
+		print("Contact")
