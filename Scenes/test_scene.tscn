@@ -2,22 +2,44 @@
 
 [ext_resource type="PackedScene" uid="uid://vac28bvwqrmv" path="res://Scenes/player.tscn" id="1_3dogw"]
 [ext_resource type="Script" uid="uid://2dpnp8qasffc" path="res://Scripts/test.gd" id="2_r5l72"]
+[ext_resource type="PackedScene" uid="uid://dnx5h1wdw4uio" path="res://Scenes/power_pickup.tscn" id="3_50ct6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5l72"]
 size = Vector2(82, 215)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_50ct6"]
 
 [node name="TestScene" type="Node2D" unique_id=922231122]
 
 [node name="Player" parent="." unique_id=1175071629 instance=ExtResource("1_3dogw")]
 position = Vector2(98.99999, 84.99999)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1762690023]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2120279301]
+zoom = Vector2(2.37, 2.37)
+
+[node name="DamageTest" type="Area2D" parent="." unique_id=1762690023]
 position = Vector2(399, 196)
-collision_layer = 3
+collision_layer = 2
 script = ExtResource("2_r5l72")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=306929999]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageTest" unique_id=306929999]
 position = Vector2(-153, -97.5)
 shape = SubResource("RectangleShape2D_r5l72")
 
-[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[node name="PowerPickup" parent="." unique_id=705989395 instance=ExtResource("3_50ct6")]
+position = Vector2(67, 137)
+
+[node name="PickupTest" type="Area2D" parent="." unique_id=1833855700]
+position = Vector2(126, 47)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("2_r5l72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupTest" unique_id=747429728]
+shape = SubResource("CircleShape2D_50ct6")
+debug_color = Color(0.8094888, 0.39270136, 0.3500958, 0.41960785)
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="DamageTest" to="DamageTest" method="_on_area_entered"]
+[connection signal="give_power" from="PowerPickup" to="Player" method="_on_power_pickup_give_power"]
+[connection signal="area_entered" from="PickupTest" to="PickupTest" method="_on_pickup_area_entered"]

@@ -13,3 +13,9 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	print("Player Entered") # Replace with function body.
+	
+
+
+
+func _on_pickup_area_entered(area: Area2D) -> void:
+	print("Player Entered")

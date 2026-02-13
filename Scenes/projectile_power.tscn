@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://b00nbgegw0tiu"]
+
+[ext_resource type="Texture2D" uid="uid://bg52x3jrt2iuo" path="res://Assets/TopDownCharacter/Character/Retro Impact Effect Pack 5 C.png" id="1_b8uiw"]
+[ext_resource type="Script" uid="uid://dasp3vk0xan4n" path="res://Scripts/projectile_power.gd" id="1_tu5pr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu5pr"]
+atlas = ExtResource("1_b8uiw")
+region = Rect2(0, 68, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpaw3"]
+atlas = ExtResource("1_b8uiw")
+region = Rect2(64, 68, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtnfx"]
+atlas = ExtResource("1_b8uiw")
+region = Rect2(128, 68, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me7cu"]
+atlas = ExtResource("1_b8uiw")
+region = Rect2(192, 68, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xom7d"]
+atlas = ExtResource("1_b8uiw")
+region = Rect2(256, 68, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u55xd"]
+atlas = ExtResource("1_b8uiw")
+region = Rect2(320, 68, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp6uu"]
+atlas = ExtResource("1_b8uiw")
+region = Rect2(192, 0, 64, 68)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5hvdj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu5pr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpaw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtnfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_me7cu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xom7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u55xd")
+}],
+"loop": false,
+"name": &"dissipate",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp6uu")
+}],
+"loop": true,
+"name": &"projectile",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovn4h"]
+radius = 16.0
+height = 60.0
+
+[node name="Projectile_Power" type="CharacterBody2D" unique_id=2018121900]
+rotation = 5.497787
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_tu5pr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=446517762]
+sprite_frames = SubResource("SpriteFrames_5hvdj")
+animation = &"projectile"
+autoplay = "projectile"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1456293090]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=787332629]
+position = Vector2(2, -2)
+shape = SubResource("CapsuleShape2D_ovn4h")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=720726650]
+rect = Rect2(-17.580965, -34.63813, 35.79367, 66.11751)
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
