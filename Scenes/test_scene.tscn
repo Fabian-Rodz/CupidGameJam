@@ -22,7 +22,7 @@ zoom = Vector2(2.37, 2.37)
 
 [node name="DamageTest" type="Area2D" parent="." unique_id=1762690023]
 position = Vector2(399, 196)
-collision_layer = 2
+collision_layer = 8
 script = ExtResource("3_hb2xm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageTest" unique_id=306929999]

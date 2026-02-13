@@ -32,15 +32,13 @@ func disabled_collision():
 	hurtbox_collision.set_deferred("disabled", true)
 	
 func disable_collision_layer():
-	hurtbox_aread2D.set_collision_layer_value(1,false)
-	hurtbox_aread2D.set_collision_mask_value(2,false)
+	hurtbox_aread2D.set_collision_mask_value(4,false)
 
 func enable_collision():
 	hurtbox_collision.set_deferred("disabled", false)
 
 func enable_collision_layer():
-	hurtbox_aread2D.set_collision_layer_value(1,true)
-	hurtbox_aread2D.set_collision_mask_value(2,true)
+	hurtbox_aread2D.set_collision_mask_value(4,true)
 	
 func hurt_sequence():
 	animation_tree.get("parameters/playback").travel("Hurt")
@@ -139,13 +137,13 @@ func _on_hurt_timer_timeout() -> void:
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area.collision_layer == 4 and not is_rolling:
-		if !is_hurt:
-			if lives > 1:
-				hurt_sequence()
-			else:
-				death_sequence()
-		print("Contact")
+	#if area.collision_layer == 4 and not is_rolling:
+	if !is_hurt:
+		if lives > 1:
+			hurt_sequence()
+		else:
+			death_sequence()
+	print("Contact")
 
 
 func _on_power_pickup_give_power() -> void:
