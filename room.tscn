@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://hl80ser1wlcr" path="res://Scenes/player_detector.tscn" id="5_ka7wq"]
 [ext_resource type="PackedScene" uid="uid://mfvu2gbo0re7" path="res://Scenes/vampire.tscn" id="6_x5k2b"]
 [ext_resource type="PackedScene" uid="uid://cobmg22c6ql5e" path="res://Scenes/skeleton_2.tscn" id="7_8cv3p"]
+[ext_resource type="PackedScene" uid="uid://bmc8y3w1vx1np" path="res://Scenes/power_pickup.tscn" id="8_01y1d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bisa2"]
 size = Vector2(20, 264)
@@ -172,6 +173,20 @@ position = Vector2(208, 312)
 [node name="Vampire" parent="Entities/EnemyPaths/Path2D6/PathFollow2D" unique_id=600538301 instance=ExtResource("6_x5k2b")]
 
 [node name="PlayerDetector" parent="Entities/EnemyPaths/Path2D6/PathFollow2D/Vampire" unique_id=693226504 instance=ExtResource("5_ka7wq")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1920364256]
+position = Vector2(318, 208)
+zoom = Vector2(1.71, 1.71)
+
+[node name="Label" type="Label" parent="." unique_id=1190837451]
+offset_left = 123.0
+offset_top = 42.0
+offset_right = 526.0
+offset_bottom = 65.0
+text = "WASD/Arrow keys to Move; Space to roll; O to attack"
+
+[node name="PowerPickup" parent="." unique_id=705989395 instance=ExtResource("8_01y1d")]
+position = Vector2(80, 221)
 
 [connection signal="follow_player" from="Entities/EnemyPaths/Path2D/PathFollow2D/Skeleton/PlayerDetector" to="Entities/EnemyPaths/Path2D/PathFollow2D" method="_on_player_detector_follow_player"]
 [connection signal="follow_player" from="Entities/EnemyPaths/Path2D2/PathFollow2D/Vampire/PlayerDetector" to="Entities/EnemyPaths/Path2D2/PathFollow2D" method="_on_player_detector_follow_player"]

@@ -32,13 +32,13 @@ func disabled_collision():
 	hurtbox_collision.set_deferred("disabled", true)
 	
 func disable_collision_layer():
-	hurtbox_aread2D.set_collision_mask_value(4,false)
+	hurtbox_aread2D.set_collision_mask_value(3,false)
 
 func enable_collision():
 	hurtbox_collision.set_deferred("disabled", false)
 
 func enable_collision_layer():
-	hurtbox_aread2D.set_collision_mask_value(4,true)
+	hurtbox_aread2D.set_collision_mask_value(3,true)
 	
 func hurt_sequence():
 	animation_tree.get("parameters/playback").travel("Hurt")
