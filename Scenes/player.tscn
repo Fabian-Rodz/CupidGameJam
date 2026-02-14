@@ -3465,9 +3465,6 @@ parameters/Walk/BlendSpace2D/blend_position = Vector2(0, 0)
 wait_time = 1.2
 one_shot = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=481028585]
-zoom = Vector2(4, 4)
-
 [node name="Hurtbox" type="Area2D" parent="." unique_id=921122335]
 scale = Vector2(0.99999976, 0.99999976)
 collision_mask = 526
