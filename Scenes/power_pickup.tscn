@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmc8y3w1vx1np"]
 
-[ext_resource type="Script" path="res://Scripts/power_pickup.gd" id="1_6seln"]
+[ext_resource type="Script" uid="uid://c0sq30ipq5yen" path="res://Scripts/power_pickup.gd" id="1_6seln"]
 [ext_resource type="Texture2D" uid="uid://bg52x3jrt2iuo" path="res://Assets/TopDownCharacter/Character/Retro Impact Effect Pack 5 C.png" id="1_hr0x2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpuck"]
@@ -97,7 +97,8 @@ animations = [{
 radius = 9.0
 
 [node name="PowerPickup" type="Area2D" unique_id=705989395]
-collision_layer = 0
+collision_layer = 64
+collision_mask = 128
 script = ExtResource("1_6seln")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1354175292]

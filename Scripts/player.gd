@@ -145,7 +145,6 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 				death_sequence()
 		print("Contact")
 	print(area.collision_layer)
-
-
-func _on_power_pickup_give_power() -> void:
-	projectile_power_active = true
+	print(area.name)
+	if "PowerPickup" in area.name:
+		projectile_power_active = true
