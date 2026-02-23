@@ -3467,7 +3467,8 @@ one_shot = true
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=921122335]
 scale = Vector2(0.99999976, 0.99999976)
-collision_mask = 526
+collision_layer = 129
+collision_mask = 590
 
 [node name="HurtboxCollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=593796448]
 position = Vector2(0, 6.4000006)
